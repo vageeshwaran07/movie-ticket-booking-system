@@ -111,4 +111,12 @@ def verify_payment(payload: dict):
     except:
         raise HTTPException(status_code=400, detail="Payment verification failed")
 
-  
+@router.post("/verify")
+def verify_payment(payload: dict):
+    # 🚧 TEMP TEST MODE
+    # Assume payment success
+
+    return {
+        "message": "Payment verified (test mode)",
+        "payment_id": payload.get("razorpay_payment_id", "test_payment")
+    }
