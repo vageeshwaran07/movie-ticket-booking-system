@@ -138,14 +138,14 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #for JWT
-from datetime import timedelta
+
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
 }
-
+from datetime import timedelta
 from dotenv import load_dotenv
 from pathlib import Path
 import os

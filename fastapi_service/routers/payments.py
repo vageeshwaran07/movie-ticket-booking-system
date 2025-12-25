@@ -83,8 +83,6 @@ client = razorpay.Client(
 @router.post("/create-order")
 def create_order(payload: dict, user=Depends(verify_jwt_token)):
 
-    # 1️⃣ Validate seat lock (you already have this logic)
-    # If invalid → reject
 
     amount = payload["amount"] * 100  # Razorpay uses paise
 
@@ -113,5 +111,4 @@ def verify_payment(payload: dict):
     except:
         raise HTTPException(status_code=400, detail="Payment verification failed")
 
-    # ✅ Payment verified
-    # 👉 Now confirm booking
+  

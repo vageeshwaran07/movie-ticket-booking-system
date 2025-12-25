@@ -19,12 +19,11 @@ class Show(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)
     
-    def clean(self): # it is before saving method and used for business rules
+    def clean(self): 
         overlap_shows = Show.objects.filter(screen = self.screen,
                                             start_time__lt=self.end_time,
                                             end_time__gt=self.start_time).exclude(pk=self.pk)
-        #(existing.start < new.end)AND(existing.end > new.start)
-
+        
         if overlap_shows.exists():
             raise ValidationError("This screen already has a show during this time")
 

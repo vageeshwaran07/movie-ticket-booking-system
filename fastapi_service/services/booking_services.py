@@ -4,7 +4,7 @@ from fastapi_service.db.seat_model import SeatStatus
 
 
 def confirm_booking(show_id: int, seat_ids: list, user_id):
-    user_id = str(user_id)  # 👈 FORCE STRING
+    user_id = str(user_id) 
     now = datetime.now(timezone.utc)
 
     result = seats_collection.update_many(

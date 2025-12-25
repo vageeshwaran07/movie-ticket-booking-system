@@ -5,7 +5,7 @@ from .models import Show
 @admin.register(Show)
 class ShowAdmin(admin.ModelAdmin):
 
-    # -------- VISIBILITY --------
+    #  VISIBILITY
     def has_module_permission(self, request):
         user = request.user
         return (
@@ -17,7 +17,7 @@ class ShowAdmin(admin.ModelAdmin):
     def has_view_permission(self, request, obj=None):
         return request.user.role in ["ADMIN", "STAFF"]
 
-    # -------- ACTION PERMISSIONS --------
+    #  ACTION PERMISSIONS 
     def has_add_permission(self, request):
         return request.user.role in ["ADMIN", "STAFF"]
 
@@ -27,7 +27,7 @@ class ShowAdmin(admin.ModelAdmin):
     def has_delete_permission(self, request, obj=None):
         return request.user.role == "ADMIN"
 
-    # -------- DATA ISOLATION --------
+    #  DATA ISOLATION 
     def get_queryset(self, request):
         qs = super().get_queryset(request)
 

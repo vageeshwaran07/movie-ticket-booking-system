@@ -2,10 +2,10 @@ from pymongo import MongoClient, errors
 import os
 import time
 
-# Use 127.0.0.1 instead of localhost
+
 MONGO_URI = os.getenv("MONGO_URI", "mongodb://127.0.0.1:27017")
 
-# Retry connection until MongoDB is reachable
+
 def get_client(uri, max_retries=5, wait=3):
     for i in range(max_retries):
         try:

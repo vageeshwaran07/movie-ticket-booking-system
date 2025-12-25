@@ -6,7 +6,7 @@ User = get_user_model()
 
 class EmailBackend(ModelBackend):
     def authenticate(self, request, username=None, password=None, **kwargs):
-        # Django admin sends email in `username` field
+        
         if username is None:
             username = kwargs.get("email")
 

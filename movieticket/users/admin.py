@@ -7,7 +7,7 @@ class UserAdmin(admin.ModelAdmin):
     list_display = ("email", "role", "is_staff", "is_active")
 
     def save_model(self, request, obj, form, change):
-        if not obj.pk:  # only when creating user
+        if not obj.pk: 
             obj.set_password(obj.password)
         super().save_model(request, obj, form, change)
 
