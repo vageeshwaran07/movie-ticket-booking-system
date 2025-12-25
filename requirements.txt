@@ -1,0 +1,7 @@
+django
+psycopg # connector or adapter between postgres and python
+djangorestframework-simplejwt
+fastapi
+uvicorn 
+pyJWT
+pymongo
